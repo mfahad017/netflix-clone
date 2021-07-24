@@ -1,0 +1,11 @@
+.homeScreen {
+  background-color: rgba(37, 37, 37, 0.95);
+
+  &__rowContainer {
+    //margin-top: -20vh;
+    position: relative;
+    margin-top: -10%;
+    overflow: hidden;
+    //z-index: 10;
+  }
+}

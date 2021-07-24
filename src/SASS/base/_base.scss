@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; //1rem = 10px
+
+  @include respond(smallScreen) {
+    font-size: 37.75%; // 1rem = 7p x, 7/16 = 43.75%
+  }
+
+  @include respond(tabScreen) {
+    font-size: 50%; // 1rem = 4.8px, 4.8/16 = 30%
+  }
+  @include respond(smallScreen) {
+    font-size: 62.5%; // 1rem = 10px, 10/16 = 62.5%
+  }
+  @include respond(bigScreen) {
+    font-size: 75.5%; // 1rem = 10px, 10/16 = 62.5%
+  }
+}
+
+body {
+  background-color: rgb(37, 37, 37);
+}

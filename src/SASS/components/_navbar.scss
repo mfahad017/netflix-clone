@@ -1,0 +1,47 @@
+.navBar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0)
+  );
+  @include respond(smallScreen) {
+    width: 100vw;
+  }
+  //ANCHOR Animations
+  transition-timing-function: ease-in;
+  transition: all 500ms;
+
+  &__black {
+    background-color: $color-navbar;
+    @include respond(smallScreen) {
+      opacity: 0.8;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    &__logo {
+      left: 2rem;
+      height: 7.5rem;
+      cursor: pointer;
+      @include respond(smallScreen) {
+        height: 5rem;
+      }
+    }
+    &__avatar {
+      right: 2rem;
+      height: 3rem;
+      margin-right: 1.5rem;
+      align-self: center;
+      cursor: pointer;
+      @include respond(smallScreen) {
+        height: 3.5rem;
+      }
+    }
+  }
+}

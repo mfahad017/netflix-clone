@@ -1,0 +1,29 @@
+.row {
+  color: white;
+  margin-left: 2rem;
+  &__title {
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+      -1px -1px 0 #000;
+    color: white;
+    margin-bottom: 1rem;
+    @include respond(smallScreen) {
+      font-size: 15px;
+      margin-bottom: 10rem;
+    }
+  }
+  &__poster {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 2rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__item {
+      max-height: 35rem;
+      margin: 0rem 2rem;
+    }
+  }
+}

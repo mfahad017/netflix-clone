@@ -1,0 +1,108 @@
+.profile {
+  background-color: rgb(37, 37, 37);
+  color: white;
+  height: 100vh;
+  width: 100%;
+  &__body {
+    @include absCenter;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    border-top: 1px solid white;
+    justify-content: center;
+    @include respond(tabScreen) {
+      width: 60%;
+    }
+    @include respond(smallScreen) {
+      width: 95%;
+    }
+    &__avatar {
+      margin-right: 1rem;
+      & > img {
+        width: 5rem;
+      }
+      @include respond(smallScreen) {
+        display: none;
+      }
+    }
+    &__detail {
+      display: flex;
+      flex-direction: column;
+      font-size: 1vw;
+      overflow: hidden;
+      width: 100%;
+      @include respond(tabScreen) {
+        font-size: 2vw;
+      }
+      @include respond(smallScreen) {
+        font-size: 3vw;
+      }
+
+      &__email {
+        font-size: 2rem;
+        padding: 0.5rem 1.25rem;
+        width: 100%;
+        background-color: rgb(107, 107, 107);
+        font-size: calc(2.25rem);
+      }
+      &__heading {
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        border-bottom: 1px solid white;
+        & > span {
+          text-transform: capitalize;
+        }
+      }
+      &__subscription {
+        &__renewal {
+          font-size: inherit;
+          margin-top: 1rem;
+        }
+        &__plansList {
+          margin-left: 0.5rem;
+
+          &__listItem {
+            opacity: 0.8;
+            cursor: pointer;
+            &:hover {
+              opacity: 1;
+            }
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            white-space: nowrap;
+            &__info {
+              &__heading {
+                font-size: inherit;
+              }
+              &__subHeading {
+                font-size: inherit;
+              }
+            }
+            &__button {
+              margin-left: 15rem;
+              padding: 1rem 2.25rem;
+              border: none;
+              font-size: inherit;
+              width: auto;
+              cursor: pointer;
+              &__subscribe {
+                background-color: #e50914;
+              }
+              &__currentPackage {
+                background-color: gray;
+              }
+            }
+          }
+        }
+      }
+      &__signoutButton {
+        border: none;
+        margin: 1.5rem 0;
+        padding: 1rem 0rem;
+        background-color: #e50914;
+        cursor: pointer;
+      }
+    }
+  }
+}

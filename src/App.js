@@ -22,6 +22,7 @@ function App() {
 
   const dispatch = useDispatch();
 
+  const [loggedIn, setLoggedIn] = useState(null)
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(userAuth =>{
@@ -30,59 +31,53 @@ function App() {
           uid: userAuth.uid,
           email: userAuth.email
         }) )
+        setLoggedIn(true)
       }
       else{
+        setLoggedIn(true)
         dispatch(logout())
       }
       return () => unsubscribe() ;
     })
     
   }, [])
-  const [subscription, setSubscription] = useState(null)
-  useEffect(() =>{
-    if(user)
-    { 
-      db.collection('customers')
-      .doc(user.uid)
-      .collection('subscriptions')
-      .get()
-      .then(querySnapshot =>{
-          querySnapshot.forEach(async subscription =>{
-              setSubscription({
-                  role: subscription.data().role,
-                  current_period_end: subscription.data().current_period_end.seconds,
-                  current_period_start: subscription.data().current_period_start.seconds
-              })
-          })
-      })
-  }
-}, [])
+
   useEffect(() => {
+    console.log(user)
+  }, [user])
 
-      console.log(subscription);
+  useEffect(() => {
+    console.log(loggedIn)
+  }, [loggedIn])
 
-  }, [subscription])
+
 
   return (
      <Router>
        
-       <Switch >
-          {
-            !user 
+      {
+        loggedIn
+        ?
+            !user
             ?
-              <Register/>
+            
+              <Register />
             :
             (
               <>
-                <Route component={HomeScreen} path="/" exact />
+              <Switch >
+                <Route component={HomeScreen} path="/browse" exact />
                 <Route component={Profile} path="/profile" exact />
+                <Route path="/">
+                  <h1>Error 404</h1>
+                </Route>
+              </Switch>
               </>
-                )
-              }
-            <Route path="/">
-              <h1>Error 404</h1>
-            </Route>
-          </Switch>
+            )
+        :
+          null
+      }
+            
      </Router>
   );
 }

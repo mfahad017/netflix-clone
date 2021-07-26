@@ -34,7 +34,7 @@ function NavBar() {
     const history = useHistory();
 
     const handleLogoClick = () =>{
-        history.push('./')
+        history.push('./browse')
     }
     const handleAvatarClick = () =>{
         history.push('./profile')

@@ -16,7 +16,7 @@ function Profile() {
     const user = useSelector(selectUser)
 
     const handleSignOut = () =>{
-        history.push('./Register');
+//history.push('./Register');
         auth.signOut();
     }
 

@@ -16,7 +16,7 @@ function Signup({signIn, setSignIn}) {
         )
         .then((authUser)=>{
             console.log(authUser)
-            history.push("./")
+            history.push("./browse")
         })
         .catch( error => {
             console.error(error)
@@ -33,7 +33,7 @@ function Signup({signIn, setSignIn}) {
         .then( authUser =>{
             console.log(authUser)
             setSignIn(true)
-            history.push("./")
+            history.push("./browse")
         })
         .catch( error =>{
             console.error(error)

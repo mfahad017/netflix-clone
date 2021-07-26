@@ -3,7 +3,6 @@ import "./SASS/main.scss"
 import './App.css';
 
 import {auth} from "./Firebase/firebase"
-
 import HomeScreen from './Components/Home/HomeScreen';
 import Profile from './Components/Profile/Profile'
 import Register from './Components/Register/Register'
@@ -31,10 +30,11 @@ function App() {
           email: userAuth.email
         }) )
         setLoggedIn(true)
+        
       }
       else{
-        setLoggedIn(true)
         dispatch(logout())
+        setLoggedIn(true)
       }
       return () => unsubscribe() ;
     })
@@ -52,32 +52,33 @@ function App() {
 
 
   return (
-     <Router>
+    
+      loggedIn
+      ?
+      <Router>
        
+      <Switch>
       {
-        loggedIn
+        user !== null
         ?
-            !user
-            ?
-            
-              <Register />
-            :
-            (
-              <>
-              <Switch >
-                <Route component={HomeScreen} path="/browse" exact />
-                <Route component={Profile} path="/profile" exact />
-                <Route path="/">
-                  <h1>Error 404</h1>
-                </Route>
-              </Switch>
-              </>
-            )
+        <>
+         <Route component={HomeScreen} path="/browse" />
+
+         <Route component={Profile} path="/profile" />
+        <Route component={HomeScreen} path="/" />
+        </>
         :
-          null
+        <Route component={Register} />
       }
+
+
+      </Switch>
+
+    </Router>
+      :null
+    
+     
             
-     </Router>
   );
 }
 

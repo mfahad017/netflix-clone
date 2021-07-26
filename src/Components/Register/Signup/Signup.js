@@ -1,7 +1,7 @@
 import React,{useRef} from 'react'
 import { useHistory } from 'react-router'
 import {auth} from "../../../Firebase/firebase"
-function Signup({signIn, setSignIn}) {
+function Signup({signIn, setSignIn, emailPass}) {
     const reset = React.useRef()
     const emailRef = useRef(null)
     const passRef = useRef(null)
@@ -19,7 +19,7 @@ function Signup({signIn, setSignIn}) {
             history.push("./browse")
         })
         .catch( error => {
-            console.error(error)
+            alert(error.code.substring(5))
         });
     }
 
@@ -36,7 +36,7 @@ function Signup({signIn, setSignIn}) {
             history.push("./browse")
         })
         .catch( error =>{
-            console.error(error)
+            alert(error.code.substring(5))
         })
         
     }
@@ -51,6 +51,7 @@ function Signup({signIn, setSignIn}) {
                 className="signup__form__input signup__form__input__email" 
                 placeholder="Enter Full Name"
                 required
+                defaultValue = {emailPass ? emailPass : ""}
                 />
                 <input 
                 ref={passRef}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Login({signIn, setSignIn}) {
+function Login({signIn, setSignIn, setEmailPass}) {
     return (
         <div className="login">
             <h1 className="login__title">Unlimited films, TV programmes and more.</h1>
@@ -12,6 +12,7 @@ function Login({signIn, setSignIn}) {
                     type="email" 
                     className="login__input__form__field" 
                     placeholder="Enter Your Email"
+                    onChange={(e)=>setEmailPass(e.target.value)}
                     />
                     <button 
                     className="login__input__form__button" 

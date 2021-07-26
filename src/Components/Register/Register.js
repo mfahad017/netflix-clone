@@ -5,7 +5,8 @@ import Signup from './Signup/Signup'
 function Register() {
 
     const [signIn, setSignIn] = React.useState(false)
-    
+
+    const [passEmail, setEmailPass] = React.useState('')
 
     return (
         <div className="register">
@@ -22,10 +23,10 @@ function Register() {
                     {
                         signIn
                         ? 
-                        <Signup signIn={signIn} setSignIn={setSignIn} />
+                        <Signup signIn={signIn} setSignIn={setSignIn} emailPass = {passEmail} />
                         :
                         
-                        <Login signIn={signIn} setSignIn={setSignIn} />
+                        <Login signIn={signIn} setSignIn={setSignIn} setEmailPass={setEmailPass} />
                     }
                 </div>
             </div>

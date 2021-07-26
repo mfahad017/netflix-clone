@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 import { useSelector } from 'react-redux'
-import { useHistory } from 'react-router'
+//import { useHistory } from 'react-router'
 import { auth } from '../../Firebase/firebase'
 import { selectUser } from '../../Redux/userSlice'
 
@@ -11,7 +11,7 @@ import Plans from './Plans/Plans'
 
 function Profile() {
 
-    const history = useHistory();
+   // const history = useHistory();
 
     const user = useSelector(selectUser)
 

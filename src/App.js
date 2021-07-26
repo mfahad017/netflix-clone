@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import "./SASS/main.scss"
 import './App.css';
 
-import db, {auth} from "./Firebase/firebase"
+import {auth} from "./Firebase/firebase"
 
 import HomeScreen from './Components/Home/HomeScreen';
 import Profile from './Components/Profile/Profile'
@@ -11,8 +11,7 @@ import Register from './Components/Register/Register'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './Redux/userSlice';
@@ -40,7 +39,7 @@ function App() {
       return () => unsubscribe() ;
     })
     
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     console.log(user)

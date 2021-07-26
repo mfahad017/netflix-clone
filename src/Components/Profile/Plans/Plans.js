@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import db from '../../../Firebase/firebase'
 import { selectUser } from '../../../Redux/userSlice'
-import {loadStripe, useStripe} from '@stripe/stripe-js'
+import {loadStripe} from '@stripe/stripe-js'
 
 function Plans({setCurrentPlan}) {
 
@@ -52,6 +52,7 @@ function Plans({setCurrentPlan}) {
 
             })
         })
+        // eslint-disable-next-line
     }, [])
     console.log(subscription)
 

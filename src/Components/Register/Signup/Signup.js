@@ -1,4 +1,4 @@
-import React,{useState, useRef} from 'react'
+import React,{useRef} from 'react'
 import { useHistory } from 'react-router'
 import {auth} from "../../../Firebase/firebase"
 function Signup({signIn, setSignIn}) {
@@ -63,7 +63,7 @@ function Signup({signIn, setSignIn}) {
             </form>
             <div className="signup__extraLink">
                 <span className="signup__extraLink__preLink">New to Netflix?</span>
-                <span className="signup__extraLink__link" onClick={signUpForm}><a>Sign up now.</a></span>
+                <span className="signup__extraLink__link" onClick={signUpForm}>Sign up now.</span>
             </div>
         </div>
     )

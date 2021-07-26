@@ -1,15 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Rows from './Rows'
 import requests from '../../../Axios/request'
-import axios from '../../../Axios/axios'
-// import axios from 'axios'
+
 function RowsContainer() {
 
 
-    const loadStuff = async () => {
-        const request1 = await axios.get(requests.fetchTopRated);
-        console.log(request1.data);
-    };
 
 
     return (

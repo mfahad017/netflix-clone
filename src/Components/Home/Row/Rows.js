@@ -67,6 +67,7 @@ function Rows({title, fetchUrl, isLargeRow = false}) {
             else if(isBigScreen){
                 setSettings({...settings,slidesToShow:5,slidesToScroll:5, arrows: true})
             }
+            // eslint-disable-next-line
         }, [])
 
 
@@ -86,6 +87,7 @@ function Rows({title, fetchUrl, isLargeRow = false}) {
                                 <img 
                                 className={` card-image `}
                                 key={item.id}
+                                alt="movie banenrs"
                                 src={`${base_Url}${
                                     isLargeRow
                                     ?

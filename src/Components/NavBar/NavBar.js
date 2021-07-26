@@ -1,19 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
-import { useDispatch } from 'react-redux';
-import {logout} from '../../Redux/userSlice'
+
 import { useHistory } from 'react-router-dom';
 
-import {auth} from "../../Firebase/firebase"
-
 function NavBar() {
-    const dispatch = useDispatch();
 
-
-    const handleLogout = () =>{
-        console.log("logout")
-        dispatch(logout)
-    }
 
 
     const [show, handleShow] = React.useState(false);

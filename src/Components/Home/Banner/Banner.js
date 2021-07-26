@@ -4,7 +4,6 @@ import React,{useState, useEffect, useRef} from 'react'
 import axios from '../../../Axios/axios'
 import requests from '../../../Axios/request'
 //NOTE Images
-import banner from './LukeCage/lukeCageBanner.jpg'
 import logo from './blackWidowLogo.png'
 import video from './blackWidowVideo.mp4'
 
@@ -34,7 +33,7 @@ function Banner() {
             return request;
         }
         fetchData();
-    }, [])
+    })
     //console.log(movie.tagline)
     useEffect(() => {
 
@@ -44,20 +43,20 @@ function Banner() {
             }
         }, 10000)
   
-      }, []);
+      });
 
     const truncate = (string, n) =>{
         return string?.length > n ? string.substr(0, n - 1) + '...' : string;   
     }
     
-    const dis = "A hoodie-wearing, unbreakable ex-con fights to clear his name and save his neighborhood. He wasn't looking for a fight, but the people need a hero.A hoodie-wearing, unbreakable ex-con fights to clear his name and save his neighborhood. He wasn't looking for a fight, but the people need a hero."
-    //
-    const image = `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`
-    const bannerBackground = {
-        backgroundImage:`url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
-        backgroundSize:"cover",
-        backgroundPosition: "center center"
-    };
+    // const dis = "A hoodie-wearing, unbreakable ex-con fights to clear his name and save his neighborhood. He wasn't looking for a fight, but the people need a hero.A hoodie-wearing, unbreakable ex-con fights to clear his name and save his neighborhood. He wasn't looking for a fight, but the people need a hero."
+    // //
+    // const image = `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`
+    // const bannerBackground = {
+    //     backgroundImage:`url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+    //     backgroundSize:"cover",
+    //     backgroundPosition: "center center"
+    // };
 
 
     const vid = useRef()
@@ -68,7 +67,7 @@ function Banner() {
             setSound(vid.current.muted)
             console.log(sound)
         }
-        
+        // eslint-disable-next-line
     }, [vid.current])
 
     const handleSound = () => {
@@ -87,8 +86,8 @@ function Banner() {
         vid.current.play()
         handleTrailerPlaying(true)
     }
-    const isBigScreen = useMediaQuery({ minWidth: 1824 })
-    const isMediumScreen = useMediaQuery({maxWidth: 1300})
+    useMediaQuery({ minWidth: 1824 })
+    useMediaQuery({maxWidth: 1300})
     const isSmallScreen = useMediaQuery({maxWidth:600})
     
 
